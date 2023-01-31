@@ -15,7 +15,7 @@ This extension creates a codespaces from the docs-internal repository (assuming 
 1. Use the GitHub CLI to install the extension:
 
    ```
-   gh ext install https://github.com/hubwriter/gh-doccs
+   gh ext install hubwriter/gh-doccs
    
    Cloning into '/Users/yourname/.local/share/gh/extensions/gh-doccs'...
    remote: Enumerating objects: 35, done.
@@ -24,7 +24,7 @@ This extension creates a codespaces from the docs-internal repository (assuming 
    remote: Total 35 (delta 6), reused 24 (delta 3), pack-reused 0
    Receiving objects: 100% (35/35), 9.65 KiB | 4.83 MiB/s, done.
    Resolving deltas: 100% (6/6), done.
-   ✓ Installed extension https://github.com/hubwriter/gh-doccs
+   ✓ Installed extension hubwriter/gh-doccs
    ```
    
 ## ⚡️ Usage
