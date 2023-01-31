@@ -6,36 +6,27 @@ This extension creates a codespaces from the docs-internal repository (assuming 
 
 "doccs" = docs codespace
 
-
-
 ## 📦 Installation
 
 1. If you haven't already, install the `gh` CLI - see the [installation](https://github.com/cli/cli#installation)
 
    _Installation requires a minimum version (2.0.0) of the the GitHub CLI that supports extensions._
 
-1. Clone the repo by running either of these commands from the directory that you want to be the parent of your local copy of the repo:
+1. Use the GitHub CLI to install the extension:
 
-   ```bash
-   # git
-   git clone https://github.com/hubwriter/gh-doccs
-
-   # GitHub CLI
-   gh repo clone hubwriter/gh-doccs
    ```
-
-1. cd into it
-
-   ```bash
-   cd gh-doccs
+   gh ext install https://github.com/hubwriter/gh-doccs
+   
+   Cloning into '/Users/yourname/.local/share/gh/extensions/gh-doccs'...
+   remote: Enumerating objects: 35, done.
+   remote: Counting objects: 100% (35/35), done.
+   remote: Compressing objects: 100% (30/30), done.
+   remote: Total 35 (delta 6), reused 24 (delta 3), pack-reused 0
+   Receiving objects: 100% (35/35), 9.65 KiB | 4.83 MiB/s, done.
+   Resolving deltas: 100% (6/6), done.
+   ✓ Installed extension https://github.com/hubwriter/gh-doccs
    ```
-
-1. Install it locally
-   ```bash
-   gh extension install .
-   ```
-
-
+   
 ## ⚡️ Usage
 
 Run
