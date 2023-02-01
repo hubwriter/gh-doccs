@@ -29,16 +29,18 @@ This extension creates a codespaces from the docs-internal repository (assuming 
    
 ## ⚡️ Usage
 
-Run
-```sh
-gh doccs
-```
-Then enter a display name for the codespace. Don't use quote marks around the name. The name can include spaces and hyphens.
+1. Run
+
+   ```sh
+   gh doccs
+   ```
+   
+1. Enter a display name for the codespace. Don't use quote marks around the name. The name can include spaces and hyphens.
+1. Enter the name of a new branch you want to create, or press Enter to use the default branch. (Note this option can be turned off by setting `REQUEST_BRANCH` to `false` in the `gh-doccs` script.)
 
 For example:<br>
-<img width="514" alt="image" src="https://user-images.githubusercontent.com/54933897/214870852-ea3e1845-2122-45e1-8df4-b9d23a411cd5.png">
+<img width="1057" alt="image" src="https://user-images.githubusercontent.com/54933897/216063640-2d773aae-595e-45c2-9f07-05ce256dc50c.png">
 
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/54933897/214872075-4ce2bb50-12ed-4c49-b8a3-d857a13baf37.png">
-
+<img width="580" alt="image" src="https://user-images.githubusercontent.com/54933897/216062894-b88986a4-39e8-49ea-969c-93704c81c8d6.png">
 
    ```
