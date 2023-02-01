@@ -14,7 +14,7 @@ MACHINE="xLargePremiumLinux"
 RETENTION="720h"
 REQUEST_BRANCH=true # Set to true to request a branch name, or false to use the default branch.
 
-echo -e "\nCreate a new codespace for the docs-internal repo."
+echo -e "\nCreate a new codespace for the $REPO repo."
 read -p "Enter a codespace display name: " DISPLAYNAME
 
 if [ "$REQUEST_BRANCH" = true ] ; then
