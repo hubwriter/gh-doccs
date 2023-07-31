@@ -6,6 +6,8 @@ This extension creates a codespaces from the docs-internal repository (assuming 
 
 "doccs" = docs codespace
 
+**Note**: This extension is a simplified, GitHub-Docs-Team-specific, version of the https://github.com/hubwriter/gh-quickcs extension.
+
 ## 📦 Installation
 
 1. If you haven't already, install the `gh` CLI - see the [installation](https://github.com/cli/cli#installation)
