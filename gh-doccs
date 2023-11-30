@@ -7,6 +7,7 @@
 
 set -e
 
+SCRIPTNAME=$(basename "$0" .sh)
 REPO="github/docs-internal"
 DEVCONTAINER=".devcontainer/devcontainer.json"
 TIMEOUT="3h"
@@ -15,6 +16,39 @@ MACHINE="xLargePremiumLinux" # To list available machine types for a repo use:
 RETENTION="720h"
 OPEN_IN_BROWSER=false # Set to true to open the codespace in a browser, or false to open in VS Code.
 REQUEST_BRANCH=true # Set to true to request a branch name, or false to use the default branch.
+
+display_help() {
+    echo "A gh extension to help you quickly create codespaces for a predefined repo."
+    echo "For more information, see https://github.com/hubwriter/gh-doccs."
+    echo
+    echo "Usage:"
+    echo "  gh $SCRIPTNAME [flags]" >&2
+    echo
+    echo "Flags:"
+    echo "  -h, --help        Display this help message"
+    echo "  -v, --version     Display the version of $SCRIPTNAME"
+    echo
+}
+
+while true; do
+  case "$1" in
+    -h | --help )
+        display_help
+        exit 0
+        ;;
+    -v | --version )
+        echo "$SCRIPTNAME version 2.0"
+        exit 0
+        ;;
+    "" )
+        break
+        ;;
+    * )
+        echo "Bad option. Use $0 --help for more information."
+        exit
+        ;;
+  esac
+done
 
 echo -e "\nCreate a new codespace for the $REPO repo."
 read -p "Enter a codespace display name: " DISPLAYNAME
