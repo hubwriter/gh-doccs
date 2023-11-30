@@ -44,7 +44,7 @@ while true; do
         break
         ;;
     * )
-        echo "Bad option. Use $0 --help for more information."
+        echo "Bad option. Use the --help flag for more information."
         exit
         ;;
   esac
