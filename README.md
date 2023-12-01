@@ -12,7 +12,7 @@ This extension creates a codespaces from the docs-internal repository (assuming 
 
 1. If you haven't already, install the `gh` CLI - see the [installation](https://github.com/cli/cli#installation)
 
-   _Installation requires a minimum version (2.0.0) of the the GitHub CLI that supports extensions._
+   _Installation requires a minimum version (2.0.0) of the GitHub CLI, which supports extensions._
 
 1. Use the GitHub CLI to install the extension:
 
