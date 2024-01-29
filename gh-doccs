@@ -51,10 +51,10 @@ while true; do
 done
 
 echo -e "\nCreate a new codespace for the $REPO repo."
-read -p "Enter a codespace display name: " DISPLAYNAME
+read -e -p "Enter a codespace display name: " DISPLAYNAME
 
 if [ "$REQUEST_BRANCH" = true ] ; then
-    read -p "Enter a name for a new branch (or press Enter to use the default branch): " BRANCH
+    read -e -p "Enter a name for a new branch (or press Enter to use the default branch): " BRANCH
 fi
 
 CREATE_COMMAND="gh cs create -R $REPO --devcontainer-path $DEVCONTAINER -d '$DISPLAYNAME' --idle-timeout $TIMEOUT -m $MACHINE --retention-period $RETENTION"
