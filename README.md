@@ -45,4 +45,21 @@ For example:<br>
 
 <img width="580" alt="image" src="https://user-images.githubusercontent.com/54933897/216062894-b88986a4-39e8-49ea-969c-93704c81c8d6.png">
 
+## 🔧 Configuration
 
+Typically the script doesn't need any configuration, but you can change some of the settings if required. 
+You can do this by editing your local copy of the `gh-doccs` file and editing the values of the variables at the top of the script. 
+For example, by default `LOCATION` is an empty string, but you can set this to a particular location 
+(e.g. `EastUs` or `SouthEastAsia` or `WestEurope` or `WestUs2`).
+
+After changing any of the variable values, uninstall the existing version of the extension:
+
+```
+gh ext remove doccs
+```
+
+Then, on the command line, move to the location of `doccs` file and install the extension locally:
+
+```
+gh ext install . 
+```
