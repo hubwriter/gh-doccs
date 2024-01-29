@@ -48,7 +48,22 @@ For example:<br>
 ## 🔧 Configuration
 
 Typically the script doesn't need any configuration, but you can change some of the settings if required. 
-You can do this by editing your local copy of the `gh-doccs` file and editing the values of the variables at the top of the script. 
+You can do this by editing your local copy of the `gh-doccs` file and editing the values of the variables at the top of the script.
+
+```bash
+REPO="github/docs-internal"
+DEVCONTAINER=".devcontainer/devcontainer.json"
+TIMEOUT="3h"
+MACHINE="xLargePremiumLinux" # To list available machine types for a repo use:
+                             # gh api --jq ".machines[].name" repos/OWNER/REPONAME/codespaces/machines
+LOCATION="" # e.g. EastUs|SouthEastAsia|WestEurope|WestUs2
+            # Leave empty for automatic location selection.
+            # To list current available locations see: gh cs create --help
+RETENTION="720h"
+OPEN_IN_BROWSER=false # Set to true to open the codespace in a browser, or false to open in VS Code.
+REQUEST_BRANCH=true # Set to true to request a branch name, or false to use the default branch.
+```
+
 For example, by default `LOCATION` is an empty string, but you can set this to a particular location 
 (e.g. `EastUs` or `SouthEastAsia` or `WestEurope` or `WestUs2`).
 
