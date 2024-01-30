@@ -7,12 +7,15 @@
 
 set -e
 
-SCRIPTNAME=$(basename "$0" .sh)
+SCRIPTNAME=$(basename "$0" .sh)  # The name of this script. Don't alter this line.
 REPO="github/docs-internal"
 DEVCONTAINER=".devcontainer/devcontainer.json"
 TIMEOUT="3h"
 MACHINE="xLargePremiumLinux" # To list available machine types for a repo use:
                              # gh api --jq ".machines[].name" repos/OWNER/REPONAME/codespaces/machines
+LOCATION="" # e.g. EastUs|SouthEastAsia|WestEurope|WestUs2
+            # Leave empty for automatic location selection.
+            # To list current available locations see: gh cs create --help
 RETENTION="720h"
 OPEN_IN_BROWSER=false # Set to true to open the codespace in a browser, or false to open in VS Code.
 REQUEST_BRANCH=true # Set to true to request a branch name, or false to use the default branch.
@@ -59,6 +62,7 @@ fi
 
 CREATE_COMMAND="gh cs create -R $REPO --devcontainer-path $DEVCONTAINER -d '$DISPLAYNAME' --idle-timeout $TIMEOUT -m $MACHINE --retention-period $RETENTION"
 
+echo
 if [[ "$BRANCH" =~ ( |\') ]]
 then
   echo "Branch names cannot contain spaces or single quotes."
@@ -66,15 +70,20 @@ then
 elif [ ! -z ${BRANCH+x} ] && [ -n "$BRANCH" ] # If BRANCH is set and not empty
 then
   CREATE_COMMAND="$CREATE_COMMAND -b $BRANCH"
-  echo "CREATE_COMMAND is $CREATE_COMMAND"
   # Get the SHA for the default branch:
   SHA=$(eval "gh api repos/$REPO/git/ref/heads/main --jq .object.sha")
   # Create a remote branch
   API_CALL="gh api --method POST -H \"Accept: application/vnd.github+json\" /repos/$REPO/git/refs -f ref=\"refs/heads/$BRANCH\" -f sha=\"$SHA\""
-  echo; echo $API_CALL
+  echo $API_CALL
   eval $API_CALL > /dev/null
 fi
 
+if [ -n "$LOCATION" ] # If LOCATION is not an empty string
+then
+  CREATE_COMMAND="$CREATE_COMMAND -l $LOCATION"
+fi
+
+# Print the command we're about to run:
 echo $CREATE_COMMAND; echo
 OUTPUT=$(eval $CREATE_COMMAND)
 
